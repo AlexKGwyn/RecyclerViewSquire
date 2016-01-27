@@ -26,8 +26,8 @@ public class FullScreenLinearLayoutManager extends LinearLayoutManager {
 
     @Override
     public void measureChild(View child, int widthUsed, int heightUsed) {
-        int widthmeasureSpec = View.MeasureSpec.makeMeasureSpec(getWidth(), View.MeasureSpec.EXACTLY);
+        int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(getWidth(), View.MeasureSpec.EXACTLY);
         int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(getHeight(), View.MeasureSpec.EXACTLY);
-        child.measure(widthmeasureSpec, heightMeasureSpec);
+        child.measure(widthMeasureSpec, heightMeasureSpec);
     }
 }
