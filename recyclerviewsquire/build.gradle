@@ -26,10 +26,11 @@ dependencies {
 }
 
 // ./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
+
 publish {
     userOrg = 'alexgwyn'
     groupId = 'com.alexgwyn.recyclerviewsquire'
-    artifactId = 'core'
+    artifactId = 'recyclerviewsquire'
     publishVersion = '0.0.1'
     desc = 'A set of RecyclerView helper classes'
     website = 'https://github.com/AlexKGwyn/RecyclerViewSquire'
