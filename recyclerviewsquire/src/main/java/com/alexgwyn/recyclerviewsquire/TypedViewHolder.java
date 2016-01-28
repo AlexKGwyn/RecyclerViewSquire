@@ -1,10 +1,12 @@
 package com.alexgwyn.recyclerviewsquire;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 
+/**
+ * View holder which is associated with a model type
+ * @param <T> the type
+ */
 public abstract class TypedViewHolder<T> extends ClickableViewHolder {
 
 

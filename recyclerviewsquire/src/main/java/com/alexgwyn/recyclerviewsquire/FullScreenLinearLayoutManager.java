@@ -5,6 +5,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * {@link LinearLayoutManager} which lays out each of its views the width and height of the screen
+ */
 public class FullScreenLinearLayoutManager extends LinearLayoutManager {
 
     public FullScreenLinearLayoutManager(Context context) {

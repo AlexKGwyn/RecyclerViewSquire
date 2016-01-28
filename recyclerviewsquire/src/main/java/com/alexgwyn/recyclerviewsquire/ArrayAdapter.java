@@ -5,6 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * {@link android.support.v7.widget.RecyclerView.Adapter} which works more like {@link android.widget.ArrayAdapter}
+ * @param <T> the type
+ * @param <V> the viewHolder
+ */
 public abstract class ArrayAdapter<T, V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
 
     private ArrayList<T> mItems = new ArrayList<>();

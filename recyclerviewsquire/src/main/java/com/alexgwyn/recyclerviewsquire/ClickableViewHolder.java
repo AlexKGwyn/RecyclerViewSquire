@@ -5,9 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 
+/**
+ * A {@link android.support.v7.widget.RecyclerView.ViewHolder} which is clickable by default.
+ */
 public abstract class ClickableViewHolder extends RecyclerView.ViewHolder {
 
-    private onClickListener mClickListener;
+    private OnClickListener mClickListener;
     private View.OnClickListener mViewClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -47,11 +50,11 @@ public abstract class ClickableViewHolder extends RecyclerView.ViewHolder {
         mClickableView.setOnClickListener(mViewClickListener);
     }
 
-    public void setClickListener(onClickListener clickListener) {
+    public void setClickListener(OnClickListener clickListener) {
         mClickListener = clickListener;
     }
 
-    public interface onClickListener {
+    public interface OnClickListener {
         void onItemClick(View v, int position);
     }
 }
