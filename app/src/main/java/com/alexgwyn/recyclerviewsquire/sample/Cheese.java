@@ -2,7 +2,6 @@ package com.alexgwyn.recyclerviewsquire.sample;
 
 /**
  * A fake model to show usage
- * Created by John on 11/24/15.
  */
 public class Cheese {
 

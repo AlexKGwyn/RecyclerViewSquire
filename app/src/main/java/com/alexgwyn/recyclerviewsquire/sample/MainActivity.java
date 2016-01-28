@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.alexgwyn.recyclerviewsquire.ClickableArrayAdapter;
+import com.alexgwyn.recyclerviewsquire.FullScreenLinearLayoutManager;
 
 import java.util.ArrayList;
 
@@ -30,6 +32,18 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mToolbar.setTitle(R.string.app_name);
+        mToolbar.inflateMenu(R.menu.main);
+        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_change_layout_manager:
+                        mCheeseRecyclerView.setLayoutManager(new FullScreenLinearLayoutManager(MainActivity.this));
+                        return true;
+                }
+                return false;
+            }
+        });
 
         mCheeseRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mCheeseAdapter = new CheeseAdapter();

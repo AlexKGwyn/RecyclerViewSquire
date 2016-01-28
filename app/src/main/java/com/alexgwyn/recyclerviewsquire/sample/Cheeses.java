@@ -2,6 +2,9 @@ package com.alexgwyn.recyclerviewsquire.sample;
 
 import java.util.Random;
 
+/**
+ * Get some cheese
+ */
 public class Cheeses {
 
     private static final Random RANDOM = new Random();
