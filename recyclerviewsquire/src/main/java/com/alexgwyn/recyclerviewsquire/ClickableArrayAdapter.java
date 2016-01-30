@@ -6,6 +6,7 @@ import android.view.View;
 
 /**
  * {@link ArrayAdapter} which allows clicks on each item
+ *
  * @param <T>
  * @param <V>
  */
@@ -16,7 +17,7 @@ public abstract class ClickableArrayAdapter<T, V extends ClickableViewHolder> ex
         @Override
         public void onItemClick(View v, int position) {
             if (mItemClickListener != null) {
-                mItemClickListener.onItemClicked(v, position, get(position));
+                mItemClickListener.onItemClicked(ClickableArrayAdapter.this, v, position);
             }
         }
     };
@@ -33,6 +34,6 @@ public abstract class ClickableArrayAdapter<T, V extends ClickableViewHolder> ex
     }
 
     public interface OnItemClickListener<T> {
-        void onItemClicked(View view, int position, T item);
+        void onItemClicked(ClickableArrayAdapter adapter, View view, int position);
     }
 }
