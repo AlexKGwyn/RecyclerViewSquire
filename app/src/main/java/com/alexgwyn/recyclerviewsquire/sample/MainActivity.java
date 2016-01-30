@@ -51,10 +51,12 @@ public class MainActivity extends AppCompatActivity {
         addCheeses();
         mCheeseAdapter.setOnItemClickListener(new ClickableArrayAdapter.OnItemClickListener<Cheese>() {
             @Override
-            public void onItemClicked(View view, int position, Cheese item) {
+            public void onItemClicked(ClickableArrayAdapter adapter, View view, int position) {
+                Cheese item = (Cheese) adapter.get(position);
                 Snackbar.make(mRoot, item.getName() + " clicked", Snackbar.LENGTH_SHORT)
-                    .show();
+                        .show();
             }
+
         });
     }
 
