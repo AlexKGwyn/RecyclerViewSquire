@@ -7,6 +7,6 @@ Easily reference the library in your Android projects using this dependency in y
 
 ```Gradle
 dependencies {
-    compile 'com.alexgwyn.recyclerviewsquire:recyclerviewsquire:0.0.2'
+    compile 'com.alexgwyn.recyclerviewsquire:recyclerviewsquire:0.0.3'
 }
 ```
