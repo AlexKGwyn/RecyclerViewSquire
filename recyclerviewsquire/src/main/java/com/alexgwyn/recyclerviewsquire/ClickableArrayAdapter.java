@@ -16,9 +16,7 @@ public abstract class ClickableArrayAdapter<T, V extends ClickableViewHolder> ex
     private ClickableViewHolder.OnClickListener mClickListener = new ClickableViewHolder.OnClickListener() {
         @Override
         public void onItemClick(View v, int position) {
-            if (mItemClickListener != null) {
-                mItemClickListener.onItemClicked(ClickableArrayAdapter.this, v, position);
-            }
+            performItemClicked(v, position);
         }
     };
 
@@ -31,6 +29,12 @@ public abstract class ClickableArrayAdapter<T, V extends ClickableViewHolder> ex
 
     public void setOnItemClickListener(OnItemClickListener<T> itemClickListener) {
         mItemClickListener = itemClickListener;
+    }
+
+    protected void performItemClicked(View view, int position) {
+        if (mItemClickListener != null) {
+            mItemClickListener.onItemClicked(this, view, position);
+        }
     }
 
     public interface OnItemClickListener<T> {

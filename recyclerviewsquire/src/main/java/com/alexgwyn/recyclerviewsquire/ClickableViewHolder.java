@@ -46,8 +46,11 @@ public abstract class ClickableViewHolder extends RecyclerView.ViewHolder {
         if (mClickableView != null) {
             mClickableView.setOnClickListener(null);
         }
+
         mClickableView = view;
-        mClickableView.setOnClickListener(mViewClickListener);
+        if (mClickableView != null) {
+            mClickableView.setOnClickListener(mViewClickListener);
+        }
     }
 
     public void setClickListener(OnClickListener clickListener) {
