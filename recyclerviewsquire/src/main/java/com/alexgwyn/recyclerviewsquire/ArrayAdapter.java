@@ -40,7 +40,9 @@ public abstract class ArrayAdapter<T, V extends RecyclerView.ViewHolder> extends
 
     public void clearAndFill(Collection<T> items) {
         mItems.clear();
-        mItems.addAll(items);
+        if (items != null) {
+            mItems.addAll(items);
+        }
         notifyDataSetChanged();
     }
 
