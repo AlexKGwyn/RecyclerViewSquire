@@ -38,6 +38,6 @@ public abstract class ClickableArrayAdapter<T, V extends ClickableViewHolder> ex
     }
 
     public interface OnItemClickListener<T> {
-        void onItemClicked(ClickableArrayAdapter adapter, View view, int position);
+        void onItemClicked(ClickableArrayAdapter<T, ?> adapter, View view, int position);
     }
 }

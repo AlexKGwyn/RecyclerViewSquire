@@ -52,6 +52,10 @@ public abstract class ArrayAdapter<T, V extends RecyclerView.ViewHolder> extends
 
     public void remove(T item) {
         int position = mItems.indexOf(item);
+        remove(position);
+    }
+
+    public void remove(int position) {
         mItems.remove(position);
         notifyItemRemoved(position);
     }
