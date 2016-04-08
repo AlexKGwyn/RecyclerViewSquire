@@ -19,6 +19,10 @@ public abstract class ArrayAdapter<T, V extends RecyclerView.ViewHolder> extends
         return mItems.get(position);
     }
 
+    public int indexOf(T item) {
+        return mItems.indexOf(item);
+    }
+
     public void add(T item) {
         mItems.add(item);
         notifyItemInserted(mItems.size());
