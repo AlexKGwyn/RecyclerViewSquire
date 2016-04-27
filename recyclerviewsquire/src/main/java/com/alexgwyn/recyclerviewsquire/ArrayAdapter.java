@@ -60,12 +60,29 @@ public abstract class ArrayAdapter<T, V extends RecyclerView.ViewHolder> extends
         notifyItemRemoved(position);
     }
 
+
     public void clear() {
         int size = mItems.size();
         mItems.clear();
         notifyItemRangeRemoved(0, size);
     }
 
+    public void insert(T item, int position) {
+        mItems.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    public void insertRange(Collection<T> items, int startIndex) {
+        mItems.addAll(startIndex, items);
+        notifyItemRangeInserted(startIndex, items.size());
+    }
+
+    /**
+     * @return The backing arraylist from this adapter
+     */
+    public ArrayList<T> getItems() {
+        return mItems;
+    }
 
     @Override
     public int getItemCount() {
