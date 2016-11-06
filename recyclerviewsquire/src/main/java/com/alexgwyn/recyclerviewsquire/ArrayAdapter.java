@@ -77,6 +77,19 @@ public abstract class ArrayAdapter<T, V extends RecyclerView.ViewHolder> extends
         notifyItemRangeInserted(startIndex, items.size());
     }
 
+    public void updateItem(T oldItem, T newItem) {
+        int position = mItems.indexOf(oldItem);
+        if (position != -1) {
+            updateItem(newItem, position);
+        }
+    }
+
+    public void updateItem(T newItem, int position) {
+        mItems.remove(position);
+        mItems.add(position, newItem);
+        notifyItemChanged(position);
+    }
+
     /**
      * @return The backing arraylist from this adapter
      */
