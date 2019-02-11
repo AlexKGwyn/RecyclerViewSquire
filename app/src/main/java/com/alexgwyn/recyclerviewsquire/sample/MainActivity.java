@@ -1,35 +1,35 @@
 package com.alexgwyn.recyclerviewsquire.sample;
 
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.alexgwyn.recyclerviewsquire.ClickableArrayAdapter;
 import com.alexgwyn.recyclerviewsquire.FullScreenLinearLayoutManager;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.root) ViewGroup mRoot;
-    @Bind(R.id.toolbar) Toolbar mToolbar;
-    @Bind(R.id.recyclerview) RecyclerView mCheeseRecyclerView;
+    ViewGroup mRoot;
+    Toolbar mToolbar;
+    RecyclerView mCheeseRecyclerView;
     CheeseAdapter mCheeseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        mRoot = findViewById(R.id.root);
+        mToolbar = findViewById(R.id.toolbar);
+        mCheeseRecyclerView = findViewById(R.id.recyclerview);
 
         mToolbar.setTitle(R.string.app_name);
         mToolbar.inflateMenu(R.menu.main);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void addCheeses() {
         ArrayList<Cheese> cheeses = new ArrayList<>();
-        for (int i=0; i<20; i++) {
+        for (int i = 0; i < 20; i++) {
             cheeses.add(Cheeses.getRandomCheese());
         }
         mCheeseAdapter.addAll(cheeses);

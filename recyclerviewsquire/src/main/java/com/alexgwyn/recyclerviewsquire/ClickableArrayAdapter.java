@@ -1,7 +1,9 @@
 package com.alexgwyn.recyclerviewsquire;
 
-import android.support.annotation.CallSuper;
 import android.view.View;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
 
 
 /**
@@ -22,7 +24,7 @@ public abstract class ClickableArrayAdapter<T, V extends ClickableViewHolder> ex
 
     @Override
     @CallSuper
-    public void onBindViewHolder(V holder, int position) {
+    public void onBindViewHolder(@NonNull V holder, int position) {
         //TODO move this to the creation of the ViewHolder instead of every time it binds
         holder.setClickListener(mClickListener);
     }
@@ -31,7 +33,7 @@ public abstract class ClickableArrayAdapter<T, V extends ClickableViewHolder> ex
         mItemClickListener = itemClickListener;
     }
 
-    protected void performItemClicked(View view, int position) {
+    protected void performItemClicked(@NonNull View view, int position) {
         if (mItemClickListener != null) {
             mItemClickListener.onItemClicked(this, view, position);
         }

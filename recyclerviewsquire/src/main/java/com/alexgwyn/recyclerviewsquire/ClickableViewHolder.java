@@ -1,12 +1,14 @@
 package com.alexgwyn.recyclerviewsquire;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 /**
- * A {@link android.support.v7.widget.RecyclerView.ViewHolder} which is clickable by default.
+ * A {@link RecyclerView.ViewHolder} which is clickable by default.
  */
 public abstract class ClickableViewHolder extends RecyclerView.ViewHolder {
 
@@ -22,7 +24,7 @@ public abstract class ClickableViewHolder extends RecyclerView.ViewHolder {
     private View mClickableView;
     private View mItemView;
 
-    public ClickableViewHolder(View itemView) {
+    public ClickableViewHolder(@NonNull View itemView) {
         super(itemView);
         mItemView = itemView;
         if (mClickableView == null) {
@@ -30,14 +32,17 @@ public abstract class ClickableViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
+    @NonNull
     protected Context getContext() {
         return mItemView.getContext();
     }
 
+    @NonNull
     public View getItemView() {
         return mItemView;
     }
 
+    @NonNull
     public View getClickableView() {
         return mClickableView;
     }

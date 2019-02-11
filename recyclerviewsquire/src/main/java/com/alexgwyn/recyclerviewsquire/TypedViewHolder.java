@@ -2,6 +2,8 @@ package com.alexgwyn.recyclerviewsquire;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 
 /**
  * View holder which is associated with a model type
@@ -10,7 +12,7 @@ import android.view.View;
 public abstract class TypedViewHolder<T> extends ClickableViewHolder {
 
 
-    public TypedViewHolder(View itemView) {
+    public TypedViewHolder(@NonNull View itemView) {
         super(itemView);
     }
 

@@ -1,12 +1,13 @@
 package com.alexgwyn.recyclerviewsquire;
 
-import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
- * {@link android.support.v7.widget.RecyclerView.Adapter} which works more like {@link android.widget.ArrayAdapter}
+ * {@link RecyclerView.Adapter} which works more like {@link android.widget.ArrayAdapter}
  *
  * @param <T> the type
  * @param <V> the viewHolder
