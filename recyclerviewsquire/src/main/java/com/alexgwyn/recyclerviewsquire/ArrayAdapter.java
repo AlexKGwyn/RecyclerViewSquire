@@ -20,19 +20,38 @@ public abstract class ArrayAdapter<T, V extends RecyclerView.ViewHolder> extends
         return mItems.get(position);
     }
 
+    public T getOrNull(int position) {
+        if (position >= 0 && position < getItemCount()) {
+            return get(position);
+        }
+        return null;
+    }
+
     public int indexOf(T item) {
         return mItems.indexOf(item);
     }
 
     public void add(T item) {
+        add(item, true);
+    }
+
+    public void add(T item, boolean notify) {
         mItems.add(item);
-        notifyItemInserted(mItems.size());
+        if (notify) {
+            notifyItemInserted(mItems.size());
+        }
     }
 
     public void addAll(Collection<T> items) {
+        addAll(items, true);
+    }
+
+    public void addAll(Collection<T> items, boolean notify) {
         int size = mItems.size();
         mItems.addAll(items);
-        notifyItemRangeInserted(size, items.size());
+        if (notify) {
+            notifyItemRangeInserted(size, items.size());
+        }
     }
 
     /**
@@ -52,43 +71,76 @@ public abstract class ArrayAdapter<T, V extends RecyclerView.ViewHolder> extends
     }
 
     public void remove(T item) {
+        remove(item, true);
+    }
+
+    public void remove(T item, boolean notify) {
         int position = mItems.indexOf(item);
-        remove(position);
+        remove(position, notify);
     }
 
     public void remove(int position) {
-        mItems.remove(position);
-        notifyItemRemoved(position);
+        remove(position, true);
     }
 
+    public void remove(int position, boolean notify) {
+        mItems.remove(position);
+        if (notify) {
+            notifyItemRemoved(position);
+        }
+    }
 
     public void clear() {
+        clear(true);
+    }
+
+    public void clear(boolean notify) {
         int size = mItems.size();
         mItems.clear();
-        notifyItemRangeRemoved(0, size);
+        if (notify) {
+            notifyItemRangeRemoved(0, size);
+        }
     }
 
     public void insert(T item, int position) {
-        mItems.add(position, item);
-        notifyItemInserted(position);
+        insert(item, position, true);
     }
 
-    public void insertRange(Collection<T> items, int startIndex) {
+    public void insert(T item, int position, boolean notify) {
+        mItems.add(position, item);
+        if (notify) {
+            notifyItemInserted(position);
+        }
+    }
+
+    public void insertRange(Collection<T> items, int startIndex, boolean notify) {
         mItems.addAll(startIndex, items);
-        notifyItemRangeInserted(startIndex, items.size());
+        if (notify) {
+            notifyItemRangeInserted(startIndex, items.size());
+        }
     }
 
     public void updateItem(T oldItem, T newItem) {
+        updateItem(oldItem, newItem, true);
+    }
+
+    public void updateItem(T oldItem, T newItem, boolean notify) {
         int position = mItems.indexOf(oldItem);
         if (position != -1) {
-            updateItem(newItem, position);
+            updateItem(newItem, position, notify);
         }
     }
 
     public void updateItem(T newItem, int position) {
+        updateItem(newItem, position, true);
+    }
+
+    public void updateItem(T newItem, int position, boolean notify) {
         mItems.remove(position);
         mItems.add(position, newItem);
-        notifyItemChanged(position);
+        if (notify) {
+            notifyItemChanged(position);
+        }
     }
 
     /**
