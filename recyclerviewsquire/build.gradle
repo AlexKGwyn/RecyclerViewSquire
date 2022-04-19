@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
     }
@@ -22,16 +22,18 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 }
 
-// ./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
-
-publish {
-    userOrg = 'alexgwyn'
-    groupId = 'com.alexgwyn.recyclerviewsquire'
-    artifactId = 'recyclerviewsquire'
-    publishVersion = '0.0.8'
-    desc = 'A set of RecyclerView helper classes'
-    website = 'https://github.com/AlexKGwyn/RecyclerViewSquire'
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.alexgwyn.recyclerviewsquire'
+            artifactId = 'recyclerviewsquire'
+            version = '0.0.9'
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
 }
